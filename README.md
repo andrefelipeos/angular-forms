@@ -1,27 +1,21 @@
-# FormsReativos
+# About this project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+This project is part of a Angular course on Alura. An initial project was provided containing a sign-in form. My objective is to complete it adding form validations.
 
-## Development server
+# How to run it
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+*To run this project you must have **npm (Node.js)** and **Angular CLI** installed.*
 
-## Code scaffolding
+Clone this repository and install its dependecies:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm install
+```
 
-## Build
+Start the project with:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+ng serve --open
+```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Using the flag `--open` is optional and will open a new tab in your browser. The application runs at `http://localhost:4200/`.
