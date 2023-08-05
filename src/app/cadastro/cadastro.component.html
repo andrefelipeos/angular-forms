@@ -15,9 +15,18 @@
     </div>
 
     <div class="formulario__dupla">
+      <!-- NASCIMENTO -->
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="nascimento">Nascimento</label>
-        <input name="nascimento" id="nascimento" type="date" class="campo__escrita"/>
+        <input name="nascimento" id="nascimento" type="date" class="campo__escrita"
+          ngModel required #nascimento="ngModel" />
+        <div *ngIf="(nascimento?.invalid && nascimento?.touched) || nascimento?.dirty">
+          <app-mensagem
+            *ngIf="nascimento?.errors?.['required']"
+            mensagem="O campo da data de nascimento deve ser preenchido."
+          >
+          </app-mensagem>
+        </div>
       </div>
 
       <!-- TELEFONE -->
