@@ -25,9 +25,19 @@
         <input name="telefone" id="telefone" type="tel" placeholder="(XX) XXXXX-XXXX" class="campo__escrita"/>
       </div>
     </div>
+
+    <!-- EMAIL -->
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="email">E-mail</label>
-      <input name="email" id="email" type="email" class="campo__escrita"/>
+      <input name="email" id="email" type="email" class="campo__escrita" ngModel required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"/>
+      <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
+        <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['required']">
+          O campo de e-mail deve ser preenchido.
+        </span>
+        <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['pattern']">
+          Isso não parece um endereço de e-mail válido.
+        </span>
+      </div>
     </div>
 
 
