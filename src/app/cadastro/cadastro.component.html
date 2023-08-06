@@ -59,11 +59,16 @@
 
 
     <h3 class="principal__subtitulo">Endereço</h3>
-
+    <!-- CEP -->
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="cep">CEP</label>
-      <input name="cep" id="cep" class="campo__escrita" />
-      <div id="erro"></div>
+      <input name="cep" id="cep" class="campo__escrita" ngModel #cep="ngModel"
+        required pattern="^(\d{5})(-?\d{3})$" minlength="8" maxlength="9"
+      />
+      <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
+        <app-mensagem *ngIf="cep?.errors?.['required']" mensagem="O campo de CEP deve ser preenchido."></app-mensagem>
+        <app-mensagem *ngIf="cep?.errors?.['pattern']" mensagem="Isso não parece um CEP válido."></app-mensagem>
+      </div>
     </div>
 
     <div class="formulario__campo">
