@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CepService } from '../services/cep.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,7 +10,10 @@ import { NgForm } from '@angular/forms';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private cepService: CepService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +22,13 @@ export class CadastroComponent implements OnInit {
     if (form.valid) {
       this.router.navigate(["./sucesso"])
     }
+  }
+
+  consultarCep(event: any) {
+    const cep: string = event.target.value;
+    return this.cepService.getCepInfoJson(cep).subscribe(cepInfoJson => {
+      console.log(cepInfoJson);
+    })
   }
 
 }
