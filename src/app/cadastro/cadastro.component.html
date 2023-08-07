@@ -64,7 +64,7 @@
       <label class="campo__etiqueta" for="cep">CEP</label>
       <input name="cep" id="cep" class="campo__escrita" ngModel #cep="ngModel"
         required pattern="^(\d{5})(-?\d{3})$" minlength="8" maxlength="9"
-        (blur)="consultarCep($event)"
+        (blur)="consultarCep($event, f)"
       />
       <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
         <app-mensagem *ngIf="cep?.errors?.['required']" mensagem="O campo de CEP deve ser preenchido."></app-mensagem>
@@ -89,9 +89,10 @@
         <label class="campo__etiqueta" for="numero">Numero</label>
         <input name="numero" id="numero" class="campo__escrita" type="number" />
       </div>
+      <!-- COMPLEMENTO -->
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="complemento">Complemento</label>
-        <input name="complemento" id="complemento" class="campo__escrita" />
+        <input name="complemento" id="complemento" class="campo__escrita" ngModel />
       </div>
     </div>
     <!-- BAIRRO -->
@@ -120,7 +121,7 @@
       <!-- UNIDADE FEDERATIVA -->
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="estado">UF</label>
-        <select id="estado" name="estado" class="campo__escrita">
+        <select id="estado" name="estado" class="campo__escrita" ngModel #uf="ngModel" required>
           <option value="AC">Acre</option>
           <option value="AL">Alagoas</option>
           <option value="AP">Amapá</option>
@@ -150,6 +151,9 @@
           <option value="TO">Tocantins</option>
           <option value="EX">Estrangeiro</option>
         </select>
+        <div *ngIf="(uf?.invalid && uf?.touched) || uf?.dirty">
+          <app-mensagem *ngIf="uf?.errors?.['required']" mensagem="É preciso selecionar a unidade federativa."></app-mensagem>
+        </div>
       </div>
 
     </div>

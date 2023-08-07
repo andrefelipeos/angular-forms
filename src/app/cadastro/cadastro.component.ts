@@ -24,10 +24,19 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  consultarCep(event: any) {
+  consultarCep(event: any, form: NgForm) {
     const cep: string = event.target.value;
-    return this.cepService.getCepInfoJson(cep).subscribe(cepInfoJson => {
-      console.log(cepInfoJson);
+    this.cepService.getCepInfoJson(cep)
+      .subscribe(cepInfoJson => this.popularEnderecoNoFormulario(cepInfoJson, form))
+  }
+
+  popularEnderecoNoFormulario(dados: any, form: NgForm) {
+    form.form.patchValue({
+      endereco: dados.logradouro,
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      complemento: dados.complemento,
+      estado: dados.uf
     })
   }
 
