@@ -1,6 +1,6 @@
 # About this project
 
-This project is part of a Angular course on Alura. An initial project was provided containing a sign-in form. My objective is to complete it adding form validations.
+This project is part of a Angular course on Alura. An initial project was provided containing a sign-in form. In order to complete the course, I had to add some form validations, such as **required**, **minLength**, **maxLength** and **pattern** using *regex*. I also created a couple of custom validation directives to validate zip codes and minimum ages from dates of birth.
 
 # How to run it
 
